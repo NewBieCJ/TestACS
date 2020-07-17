@@ -6,15 +6,21 @@
              xmlns:local="clr-namespace:TestACS.View"
              xmlns:VM="clr-namespace:TestACS.ViewModels"
              xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="TestACS.View.ACSControl"
-             xmlns:converter="clr-namespace:TestACS.Convert"
-             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"             
-             xmlns:my="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+             xmlns:converter="clr-namespace:TestACS.Converters"
+             xmlns:rule="clr-namespace:TestACS.Rules"    
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"        
+             xmlns:my="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration" 
              xmlns:DocView="clr-namespace:DocViewerDemo;assembly=DocViewerDemo"
+             xmlns:test="clr-namespace:TestACS.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="500">
+    <!--System.Windows.Interactivity(交互)    事件触发器-->
+    <!--System.Windows.Forms.Integration(集成)    WPF控件和Windows.Form控件的互操作-->
     <UserControl.Resources>
         <converter:ColorConverterGreen x:Key="ColorConverter"/>
         <converter:StringConverter x:Key="StringConverter"/>
+        <converter:MotorStateConverter x:Key="MotorStateConverter"/>
+        <test:ACSControlViewModel x:Key="ACSControlViewModel"/>
     </UserControl.Resources>
     <Grid>
         <!--定义两行 第一行放标题 第二行放内容-->
@@ -38,15 +44,31 @@
                     <RowDefinition Height="30*"/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" Orientation="Horizontal">
-                    <Button Margin="5,0" Content="Open" Height="20" Command="{Binding OpenSimulatorCMD}"/>
-                    <Label FontSize="10" VerticalAlignment="Center" Margin="30,0,0,0" Content="Connect State"/>
-                    <Ellipse Height="20" Width="20" Stroke="DarkBlue" Fill="{Binding IsOpened,Converter={StaticResource ColorConverter}}"/>
+                    <Button Margin="10,0" Content="Open" Height="20" Command="{Binding OpenSimulatorCMD}"/>
+                    <Label FontSize="10" VerticalAlignment="Center" Margin="20,0,0,0" Content="Connect State"/>
+                    <Ellipse Height="20" Width="20" Stroke="DarkBlue"  Margin="0,8">
+                        <!--方法1：StaticResource|Fill="{Binding IsOpened, Converter={StaticResource ColorConverter}}"-->
+                        <!--方法2：属性元素赋值,XAML会复杂，但是当Convert变多时不用在Resource中加入很多x:key-->
+                        <Ellipse.Fill>
+                            <Binding Path="IsOpened">
+                                <Binding.Converter>
+                                    <converter:ColorConverterGreen/>
+                                </Binding.Converter>
+                            </Binding>
+                        </Ellipse.Fill>
+                        <!--StaticResource ColorConverter-->
+                    </Ellipse>
                 </StackPanel>
                 <StackPanel Grid.Row="1">
-                    <ComboBox  Width="70" Margin="10" VerticalAlignment="Center" SelectedIndex="{Binding AxisNum}" ItemsSource="{Binding AxesList}"/>
-                    <Button Width="55" Height="20" Content="{Binding EnableState}" Command="{Binding EnableOperationCMD}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox  Width="70" Margin="10" VerticalAlignment="Center" SelectedIndex="{Binding AxisNum}" ItemsSource="{Binding AxesList}"/>
+                        <Button Width="45"  Height="25" Content="{Binding IsEnable,Converter={StaticResource StringConverter}}" Command="{Binding EnableOperationCMD}"/>
+                        <Rectangle Width="50"/>
+                        <Button  Width="45"  Height="25" Content="Stop" Foreground="Red" FontWeight="Bold" Command="{Binding StopMotionCMD}"/>
+                    </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="10">
-                        <Button  Margin="10" Content="JOG +" Width="45">
+                        <Rectangle Width="50"/>
+                        <Button   Content="JOG +" Width="45"  Height="25">
                             <!--EventTrriger Button中不能给Command值-->
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
@@ -57,7 +79,8 @@
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </Button>
-                        <Button  Margin="30,10" Content="JOG -" Width="45">
+                        <Rectangle Width="50"/>
+                        <Button  Content="JOG -" Width="45"  Height="25">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
                                     <i:InvokeCommandAction Command="{Binding Jog_NCMD}"/>
@@ -67,17 +90,54 @@
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </Button>
-                        <Button  Margin="20,10" Content="Stop" Foreground="Red" FontWeight="Bold" Command="{Binding StopMotionCMD}"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="10">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Target Point" Margin="10" FontSize="10" VerticalAlignment="Center"/>
+                        <TextBox Width="60" Height="20">
+                            <!--Text="{Binding TargetPoint}-->
+                            <TextBox.Text>
+                                <Binding  Path="TargetPoint" UpdateSourceTrigger="Default">
+                                    <Binding.ValidationRules>
+                                        <rule:TargetPointRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <Rectangle Width="10"/>
+                        <CheckBox Width="Auto" VerticalAlignment="Center" Content="REL" IsChecked="{Binding IsRel,Mode=TwoWay}"/>
+                        <Rectangle Width="10"/>
+                        <Button Content="Go" Width="45"  Height="25" Command="{Binding ToPointCMD}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
                         <TextBlock Text="Motor State" Margin="10" FontSize="10"/>
-                        <TextBox Height="20" Width="150" Text="{Binding State}"/>
+                        <TextBox Height="20" Width="170" Text="{Binding State,Converter={StaticResource MotorStateConverter}}"/>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Grid.Row="2">
+                <StackPanel  Grid.Row="2">
                     <TextBlock Text="Postion:" FontSize="10"/>
-                    <TextBox Margin="0" Height="22" VerticalAlignment="Center" Text="{Binding FeedbackPos}"/>
-                    <Button  Margin="0" Content="Clear" Command="{Binding ZeroFPostionCMD}"/>
+                    <Rectangle>
+                        <!--测试内容-->
+                        <!--<TextBlock  FontSize="10" Visibility="Hidden">-->
+                        <!--Text="{Binding ACS.TestString}"-->
+                        <!--
+                        <TextBlock.Text>
+                            -->
+                        <!--数据的校验，一般Target到Source会校验-->
+                        <!--
+                            <Binding Path="ACS.TestString">
+                                <Binding.ValidationRules>
+                                    <rule:TestRules Min="0" Max="100"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <Button  Margin="0" Content="Test" Command="{Binding TestCMD}" Visibility="Hidden"/>-->
+                    </Rectangle>
+                    <!--<Slider  Value="{Binding ABC}"/>
+                    <TextBox Text="{Binding ABC}"/>-->
+                    <TextBox Margin="0" Height="22" Text="{Binding FeedbackPos,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" TextAlignment="Center"/>
+                    <!--{Binding FeedbackPos}-->
+                    <Button Margin="0" Content="Clear" Command="{Binding ZeroFPostionCMD}"/>
                 </StackPanel>
             </Grid>
             <!--<DocView:ControlDocViewer/>-->

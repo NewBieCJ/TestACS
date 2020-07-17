@@ -32,3 +32,20 @@ D:\Program\TestACS\DocViewerDemo\obj\Debug\DocViewerDemo.pdb
 D:\Program\TestACS\DocViewerDemo\bin\Debug\Win32.dll
 D:\Program\TestACS\DocViewerDemo\bin\Debug\Win32.pdb
 D:\Program\TestACS\DocViewerDemo\bin\Debug\Win32.xml
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\bin\Debug\DocViewerDemo.exe.config
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\bin\Debug\DocViewerDemo.exe
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\bin\Debug\DocViewerDemo.pdb
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\bin\Debug\Laser.Model.dll
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\bin\Debug\netDxf.dll
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\bin\Debug\OpenCvSharp.dll
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\bin\Debug\Win32.dll
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\bin\Debug\zxing.dll
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\bin\Debug\Win32.pdb
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\bin\Debug\Win32.xml
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\obj\Debug\DocViewerDemo.csprojResolveAssemblyReference.cache
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\obj\Debug\DocViewerDemo.ControlDocViewer.resources
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\obj\Debug\DocViewerDemo.Form1.resources
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\obj\Debug\DocViewerDemo.Properties.Resources.resources
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\obj\Debug\DocViewerDemo.csproj.GenerateResource.Cache
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\obj\Debug\DocViewerDemo.exe
+D:\Program\TestACS\BackUp\TestACS - 20200713 - 副本\DocViewerDemo\obj\Debug\DocViewerDemo.pdb
