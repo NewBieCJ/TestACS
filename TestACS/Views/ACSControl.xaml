@@ -1,0 +1,90 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestACS.View"
+             xmlns:VM="clr-namespace:TestACS.ViewModels"
+             xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="TestACS.View.ACSControl"
+             xmlns:converter="clr-namespace:TestACS.Convert"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"             
+             xmlns:my="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+             xmlns:DocView="clr-namespace:DocViewerDemo;assembly=DocViewerDemo"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500">
+    <UserControl.Resources>
+        <converter:ColorConverterGreen x:Key="ColorConverter"/>
+        <converter:StringConverter x:Key="StringConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <!--定义两行 第一行放标题 第二行放内容-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="{Binding MyVar}" VerticalAlignment="Center" Grid.Row="0"/>
+        <!--ACS Control-->
+        <!--第二行放入Grid-->
+        <Grid Margin="0,25,0,5" Grid.RowSpan="2">
+            <!--定义两列-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <Button Margin="5,0" Content="Open" Height="20" Command="{Binding OpenSimulatorCMD}"/>
+                    <Label FontSize="10" VerticalAlignment="Center" Margin="30,0,0,0" Content="Connect State"/>
+                    <Ellipse Height="20" Width="20" Stroke="DarkBlue" Fill="{Binding IsOpened,Converter={StaticResource ColorConverter}}"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1">
+                    <ComboBox  Width="70" Margin="10" VerticalAlignment="Center" SelectedIndex="{Binding AxisNum}" ItemsSource="{Binding AxesList}"/>
+                    <Button Width="55" Height="20" Content="{Binding EnableState}" Command="{Binding EnableOperationCMD}"/>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <Button  Margin="10" Content="JOG +" Width="45">
+                            <!--EventTrriger Button中不能给Command值-->
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding Jog_PCMD}"/>
+                                </i:EventTrigger>
+                                <i:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                    <i:InvokeCommandAction Command="{Binding StopMotionCMD}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                        <Button  Margin="30,10" Content="JOG -" Width="45">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding Jog_NCMD}"/>
+                                </i:EventTrigger>
+                                <i:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                    <i:InvokeCommandAction Command="{Binding StopMotionCMD}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                        <Button  Margin="20,10" Content="Stop" Foreground="Red" FontWeight="Bold" Command="{Binding StopMotionCMD}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBlock Text="Motor State" Margin="10" FontSize="10"/>
+                        <TextBox Height="20" Width="150" Text="{Binding State}"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Row="2">
+                    <TextBlock Text="Postion:" FontSize="10"/>
+                    <TextBox Margin="0" Height="22" VerticalAlignment="Center" Text="{Binding FeedbackPos}"/>
+                    <Button  Margin="0" Content="Clear" Command="{Binding ZeroFPostionCMD}"/>
+                </StackPanel>
+            </Grid>
+            <!--<DocView:ControlDocViewer/>-->
+            <my:WindowsFormsHost Name="windowsFormsHost1" Grid.Column="1" Margin="5">
+                <DocView:ControlDocViewer/>
+            </my:WindowsFormsHost>
+            <Label Grid.Column="1" Content="右" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</UserControl>

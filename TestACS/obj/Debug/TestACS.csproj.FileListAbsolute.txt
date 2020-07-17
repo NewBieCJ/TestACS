@@ -1,0 +1,62 @@
+D:\Program\TestACS\TestACS\bin\Debug\TestACS.exe.config
+D:\Program\TestACS\TestACS\bin\Debug\TestACS.exe
+D:\Program\TestACS\TestACS\bin\Debug\TestACS.pdb
+D:\Program\TestACS\TestACS\bin\Debug\ACS.SPiiPlusNET.dll
+D:\Program\TestACS\TestACS\obj\Debug\MainWindow.g.cs
+D:\Program\TestACS\TestACS\obj\Debug\App.g.cs
+D:\Program\TestACS\TestACS\obj\Debug\TestACS_MarkupCompile.cache
+D:\Program\TestACS\TestACS\obj\Debug\TestACS_MarkupCompile.lref
+D:\Program\TestACS\TestACS\obj\Debug\MainWindow.baml
+D:\Program\TestACS\TestACS\obj\Debug\TestACS.g.resources
+D:\Program\TestACS\TestACS\obj\Debug\TestACS.Properties.Resources.resources
+D:\Program\TestACS\TestACS\obj\Debug\TestACS.csproj.GenerateResource.Cache
+D:\Program\TestACS\TestACS\obj\Debug\TestACS.exe
+D:\Program\TestACS\TestACS\obj\Debug\TestACS.pdb
+D:\Program\TestACS\TestACS\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Program\TestACS\TestACS\obj\Debug\Views\ACSControl.g.cs
+D:\Program\TestACS\TestACS\obj\Debug\Views\ACSControl.baml
+D:\Program\TestACS\TestACS\bin\Debug\Microsoft.Expression.Interactions.dll
+D:\Program\TestACS\TestACS\bin\Debug\System.Windows.Interactivity.dll
+D:\Program\TestACS\TestACS\bin\Debug\Microsoft.Expression.Interactions.xml
+D:\Program\TestACS\TestACS\bin\Debug\System.Windows.Interactivity.xml
+D:\Program\TestACS\TestACS\obj\Debug\TestACS.csprojResolveAssemblyReference.cache
+D:\Program\TestACS\TestACS\bin\Debug\DocViewerDemo.exe
+D:\Program\TestACS\TestACS\bin\Debug\Laser.Model.dll
+D:\Program\TestACS\TestACS\bin\Debug\netDxf.dll
+D:\Program\TestACS\TestACS\bin\Debug\Win32.dll
+D:\Program\TestACS\TestACS\bin\Debug\zxing.dll
+D:\Program\TestACS\TestACS\bin\Debug\OpenCvSharp.dll
+D:\Program\TestACS\TestACS\bin\Debug\DocViewerDemo.pdb
+D:\Program\TestACS\TestACS\bin\Debug\Win32.pdb
+D:\Program\TestACS\TestACS\bin\Debug\Win32.xml
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\TestACS.exe.config
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\obj\Debug\TestACS.exe
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\obj\Debug\TestACS.pdb
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\TestACS.exe
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\TestACS.pdb
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\ACS.SPiiPlusNET.dll
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\DocViewerDemo.exe
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\Microsoft.Expression.Interactions.dll
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\System.Windows.Interactivity.dll
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\Laser.Model.dll
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\netDxf.dll
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\Win32.dll
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\zxing.dll
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\OpenCvSharp.dll
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\DocViewerDemo.pdb
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\Microsoft.Expression.Interactions.xml
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\System.Windows.Interactivity.xml
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\Win32.pdb
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\bin\Debug\Win32.xml
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\obj\Debug\TestACS.csprojResolveAssemblyReference.cache
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\obj\Debug\MainWindow.g.cs
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\obj\Debug\Views\ACSControl.g.cs
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\obj\Debug\App.g.cs
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\obj\Debug\TestACS_MarkupCompile.cache
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\obj\Debug\TestACS_MarkupCompile.lref
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\obj\Debug\MainWindow.baml
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\obj\Debug\Views\ACSControl.baml
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\obj\Debug\TestACS.g.resources
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\obj\Debug\TestACS.Properties.Resources.resources
+D:\Program\TestACS\BackUp\TestACS - 20200713\TestACS\obj\Debug\TestACS.csproj.GenerateResource.Cache

@@ -1,0 +1,20 @@
+﻿<Window x:Class="TestACS.Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestACS"
+        xmlns:view ="clr-namespace:TestACS.View"
+        mc:Ignorable="d"
+        Title="ACSTest" Height="400" Width="800">
+    <Grid>
+        <TabControl TabStripPlacement="Top">
+            <TabItem Header="New1">
+                <view:ACSControl></view:ACSControl>
+            </TabItem>
+                <TabItem Header="New2"/>
+                <TabItem Header="New3"/>
+            <TabItem Header="New4"/>
+        </TabControl>
+    </Grid>
+</Window>
